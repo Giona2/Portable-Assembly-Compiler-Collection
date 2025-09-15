@@ -1,3 +1,6 @@
 [submodule "interpreter"]
 	path = interpreter
 	url = ./interpreter
+[submodule "assembler"]
+	path = assembler
+	url = ./assembler
