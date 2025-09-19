@@ -1,17 +1,32 @@
-[Instruction(STT), EndOfInstruction, Instruction(NEW), Number(8), EndOfInstruction, Instruction(SET), Number(0), ArgSeperator, Number(16), EndOfInstruction, Instruction(LOD), Number(0), EndOfInstruction, Instruction(ADD), Number(25), EndOfInstruction, Instruction(RET), EndOfInstruction, Instruction(END), EndOfInstruction]
-current token: Instruction(STT)
-current token: EndOfInstruction
-current token: Instruction(NEW)
-current token: EndOfInstruction
-current token: Instruction(SET)
-current token: EndOfInstruction
-current token: Instruction(LOD)
-current token: EndOfInstruction
-current token: Instruction(ADD)
-current token: EndOfInstruction
-current token: Instruction(RET)
-current token: EndOfInstruction
-current token: Instruction(END)
-current token: EndOfInstruction
-[Instruction(STT), Instruction(NEW(8)), Instruction(SET(0, 16)), Instruction(LOD(0)), Instruction(ADD(25)), Instruction(RET), Instruction(END)]
-[1, 2, 8, 3, 0, 16, 0, 0, 0, 0, 0, 0, 0, 7, 0, 16, 25, 0, 0, 0, 0, 0, 0, 0, 6, 7]
+
+
+=== Lexer ===
+VariableInstruction(STT) Number("10") EndOfInstruction 
+
+EndOfInstruction 
+
+VariableInstruction(SET) OperatingSizeDenotator(Direct) Number("1") ArgSeperator Number("0") ArgSeperator Number("100") EndOfInstruction 
+
+VariableInstruction(SET) Number("1") ArgSeperator Number("1") ArgSeperator Number("0") EndOfInstruction 
+
+EndOfInstruction 
+
+VariableInstruction(LOD) Number("1") ArgSeperator Number("0") EndOfInstruction 
+
+ArithmeticInstruction(ADD) OperatingSizeDenotator(Direct) Number("1") ArgSeperator Number("50") EndOfInstruction 
+
+VariableInstruction(RET) Number("1") ArgSeperator Number("0") EndOfInstruction 
+
+EndOfInstruction 
+
+VariableInstruction(END) EndOfInstruction 
+
+EndOfInstruction 
+
+
+
+=== Syntax Tree ===
+Looking for given value here: Number("100")
+Looking for given value here: Number("0")
+Looking for given value here: Number("0")
+Looking for given value here: ArgSeperator
