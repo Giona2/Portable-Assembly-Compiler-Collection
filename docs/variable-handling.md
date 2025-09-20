@@ -33,12 +33,12 @@ stt 2
 
 set !2, 0, 6
 
-lod 2, 0
+lod  2, 0
 mul !2, 2
-ret 2, 0
+ret  2, 0
 
 end
 ```
 Since I already covered what the rest does in the [introduction](introduction.md), I'll instead just focus on that third block.  
   
-First, two bytes starting at variable index `0` are loaded (which was set to `6` right before this).
+First, two bytes starting at variable index `0` are loaded (which was set to `6` right before this). Then, two is directly multiplied to the loaded two byte number, which would set the loaded data to `12`. Finally, the `ret` instruction writes the given amount of bytes of loaded data starting at the given variable index
