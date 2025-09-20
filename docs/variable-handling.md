@@ -7,7 +7,7 @@ set !4, 0, 3000
 
 end
 ```
-This snippet, for example, creates a new variable frame of four bytes in size, then sets those four bytes to `3000`
+This snippet, for example, creates a new variable frame of four bytes in size, then sets those four bytes to `3000`  
 *pasm indexes the variable frame beginning at 0*
 
 # Variable Mirroring
