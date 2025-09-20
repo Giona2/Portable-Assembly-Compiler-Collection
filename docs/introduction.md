@@ -16,8 +16,9 @@ First, a new 10-byte variable frame is created with `stt 10`. This is equivalent
 ```asm
 push %rbp
 mov  %rsp, %rbp
+sub $10, %rsp
 ```
-in AT&T assembly. All this does is setup a function that has 10 bytes of local storage to work with.  
+in AT&T assembly (minus the alignment issues). All this does is setup a function that has 10 bytes of local storage to work with.  
   
 The program then sets the first byte in the variable frame to `1`. This is expressed with the `set` instruction, where the first number, `!1` tells the compiler that one byte is directly being set at a variable index. The `!` here is what's called an operator size denotation, or a way to detail the way the instruction is meant to process the data it's given.  
 An instruction without any denotations assumes the last value is a variable index that does not contain a pointer. See the denotations page for more information  
