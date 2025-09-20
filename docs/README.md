@@ -6,3 +6,4 @@ The following documentation should act as a language reference. It will provide 
 * [Introduction](introduction.md)
 * [Variable Handling](variable-handling.md)
 * [Operator Denotations](operator-denotations.md)
+# [Instruction Table](instruction-table.md)
