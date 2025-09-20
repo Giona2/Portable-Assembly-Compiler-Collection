@@ -6,21 +6,23 @@ Before the interface can be integrated, this is the closest we have to a "hello,
 ```pasm
 stt 10
 
-set !1, 0, 1
+set !1, 0, 6
 
 end
 ```
 Let's break this down line-by-line  
   
-First, a new 10-byte variable frame is created with `stt 10`. This is equivalent to the
-```asm
-push %rbp
-mov  %rsp, %rbp
-sub $10, %rsp
-```
-in AT&T assembly (minus the alignment issues). All this does is setup a function that has 10 bytes of local storage to work with.  
+---
   
-The program then sets the first byte in the variable frame to `1`. This is expressed with the `set` instruction, where the first number, `!1` tells the compiler that one byte is directly being set at a variable index. The `!` here is what's called an operator size denotation, or a way to detail the way the instruction is meant to process the data it's given.  
-An instruction without any denotations assumes the last value is a variable index that does not contain a pointer. See the denotations page for more information  
+> `stt 10`  
   
-Finally, the programs ends very fittingly with `end`, which just tells the compiler to end the current variable frame.
+This creates a new variable frame 10 bytes in size. Think of this as local storage for the function  
+  
+> `set !1, 0, 6`  
+  
+`set` changes the first byte in the variable frame to `6`. The first argument of the majority of `pasm` instructions will be the byte size of the instruction (how many bytes the instruction should read/manipulate at a given point).  
+The `!` here is called an [operator denotation](operator-denotations.md), it tells the compiler that the last value given in the instruction, `6`, is a direct value and not a variable index. If you remove the `!`, `pai` will, rather than writing `6` to the first byte in the variable frame, copy the `6`th byte in the variable frame to the `0`th (first) byte, which at this point would be zero  
+  
+> `end`  
+  
+Finally, `end` closes the current variable frame. If there was already an existing variable frame prior to calling `stt`, this will restore that previous frame
